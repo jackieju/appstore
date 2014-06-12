@@ -6,6 +6,19 @@ class AppController < ApplicationController
     
     def app
     end
+    
+    def query_app
+        appid = params[:appid]
+         rs = App.find_by_sql("select * from apps where appid='#{appid}'")
+            if rs == nil || rs.size == 0
+                error("No such App")
+                return
+            end
+            app = rs[0]
+            
+        success("OK", app.attributes)
+        return
+    end
     def delapp
         repo = appid = params[:appid]
         
