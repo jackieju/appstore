@@ -46,7 +46,10 @@ class ApplicationController < ActionController::Base
       }
   end
   def before_action
+      p "==>before_action"
       @user = User.new
+      @g_SETTINGS = g_SETTINGS
+      
   end
   def error(msg, data=nil)
        ret = {

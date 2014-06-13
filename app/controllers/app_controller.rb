@@ -124,4 +124,21 @@ class AppController < ApplicationController
         success
         
     end
+    
+    def presubmit
+        appid = params[:appid]
+        rs = App.find_by_sql("select * from apps where appid='#{appid}'")
+        
+        if rs == nil || rs.size == 0
+            render :text=>"cannot find app with id #{appid}"
+            return
+        end
+        
+        @app = rs[0]
+        p "======>hello"
+    end
+    
+    def aftersummit
+        redirect_to "#{g_SETTINGS[:post_summit_url]}?appid=#{params[:appid]}"
+    end
 end

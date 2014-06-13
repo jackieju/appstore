@@ -51,7 +51,7 @@
 			<div style="text-align:left;margin-top:3px;"><div style="width:200px;font-size:12pt;font-weight:400;">Dev Tenant</div>&nbsp;
 				<select id="devtenant">
 					<option>10.58.113.181</option>
-					<option onclick="alert('Not implemented');$('#devtenant').val('10.58.113.181');return false;">Create New Dev Tenant</option>
+					<option onclick="create_dt();">Create New Dev Tenant</option>
 					
 				</select>
 			</div>
@@ -90,6 +90,9 @@
 	
 	</div> 
 	<script>
+	function create_dt(){
+		alert('Not implemented');$('#devtenant').val('10.58.113.181');return false;
+	}
 	function godev(appid){
 		alert();
 		
@@ -130,8 +133,8 @@
 		$("#create_panel").css("display", "none");
 		$("#pre_create_app").css("display", "block");
 		$("input#app_id").val(appid);
-		$("input#app_name").val($("#btn_open_app_"+appid+ " span#appname").val());
-		$("input#app_desc").val($("#btn_open_app_"+appid+ " span#appdesc").val());
+		$("input#app_name").val($("#btn_open_app_"+appid+ " span.appname").html());
+		$("#app_desc").val($("#btn_open_app_"+appid+ " span.appdesc").html());
 		$("#btn_open_app").css("display", "block");
 		$("#btn_create_app").css("display", "none");
 		$("#btn_del_app").css("display", "block");
@@ -155,7 +158,7 @@
 	function update_app(appid){
 		// app_id = $("input#app_id").val();
 		app_name = $("input#app_name").val();
-		app_desc = $("input#app_desc").val();
+		app_desc = $("#app_desc").val();
 		app_dt = $("select#devtenant").val();
 		// alert(app_dt);
 		// alert(app_id);
@@ -209,7 +212,7 @@
 		function create_app(){
 			app_id = $("input#app_id").val();
 			app_name = $("input#app_name").val();
-			app_desc = $("input#app_desc").val();
+			app_desc = $("#app_desc").val();
 			app_dt = $("select#devtenant").val();
 			
 			alert(app_id);

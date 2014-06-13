@@ -4,6 +4,8 @@ def g_SETTINGS
         :git_server=>"localhost",
         :repo_root=>"/var/mygithub",
         :workspace_root=>"./tmp/workspaces",
+        :review_url=>"http://127.0.0.1:3002/app/submit",
+        :post_summit_url=>"http://127.0.0.1:3002/index.html",
     }
 end
 $FS_RT_ROOT = "/var/sa"
