@@ -17,7 +17,7 @@
 
 <div class="login-panel" id="pre_create_app" style="display:block;width:500px;min-height:300px;left:200px;">
 	<div style="float:left;">
-		<form id="submit" method="post" action="<%=@$SETTINGS[:review_url] %>">
+		<form id="submit" method="post" action="<%=@g_SETTINGS[:review_url] %>">
 		<div style="text-align:left;"><div style="width:200px;">应用ID</div>&nbsp;<input id="app_id" name="app_id" ></input> </div>
 		<div style="text-align:left;"><div style="width:200px;">应用名称</div>&nbsp;<input id="app_name" name="app_name" ></input> </div>
 		<div style="text-align:left;"><div style="width:100px;">应用描述</div>&nbsp;<textarea id="app_desc" name="app_desc"></textarea> </div>
@@ -57,7 +57,7 @@ $("#app_name").val("<%=@app[:name]%>");
 $("#app_desc").val("<%=@app[:desc]%>");
 
 var g_appid = "<%=@app[:appid]%>";
-var g_review_url = "<%=@$SETTINGS[:review_url] %>";
+var g_review_url = "<%=@g_SETTINGS[:review_url] %>";
 function submit_app(){
 	$("form#submit").submit();
 }

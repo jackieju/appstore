@@ -27,7 +27,7 @@ class AppController < ApplicationController
             return
         end
         
-        # r = system "cd #{$SETTINGS[:repo_root]}\n
+        # r = system "cd #{g_SETTINGS[:repo_root]}\n
         #        git init --bare #{repo}.git"
         
         # p "system call return #{r}"
@@ -84,7 +84,7 @@ class AppController < ApplicationController
             return
         end
         
-        r = system "cd #{$SETTINGS[:repo_root]}\n
+        r = system "cd #{g_SETTINGS[:repo_root]}\n
                git init --bare #{repo}.git
                chown -R git:git #{repo}.git"
         
@@ -93,7 +93,7 @@ class AppController < ApplicationController
         success('OK', {:ret=>r})
     end
     def _create_repo(repo)
-        r = system "cd #{$SETTINGS[:repo_root]}\n
+        r = system "cd #{g_SETTINGS[:repo_root]}\n
                 git init --bare #{repo}.git"
 
         p "system call return #{r}"
@@ -139,6 +139,6 @@ class AppController < ApplicationController
     end
     
     def aftersummit
-        redirect_to "#{$SETTINGS[:post_summit_url]}?appid=#{params[:appid]}"
+        redirect_to "#{g_SETTINGS[:post_summit_url]}?appid=#{params[:appid]}"
     end
 end
