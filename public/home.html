@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="/stylesheets/home.css" type="text/css" />
+	<script src="/javascripts/jquery-2.1.1.js"></script>
+	
+	<script src="/javascripts/common.js" ></script>
+	<link rel="stylesheet" href="/stylesheets/common.css" type="text/css" />
+	
+<style>
+
+</style>
+</head>
+<body>
+
+<div id="main">	
+<div style="font-size:18pt;border-bottom:1px dashed black;">
+App Store @SAP Anywhere <!-- <img src="/images/cloud175x175-75.jpg" style="width:40px;" -->
+<div style="float:right;font-size:12pt;margin-top:20px;color:grey;">i027910</div>
+</div>
+
+<div id="applist">
+</div>
+
+<div id="installedlist">
+</div>
+</div><!-- main -->
+<script>
+
+/* TODO this list should be static content created by backend cron job */
+function load_app_list(){
+	
+		$.ajax({
+			type: "post",
+			url: "/pubapp/list?t="+ new Date().getTime(),
+			//dataType: 'json',
+
+			data: {
+		
+				// authenticity_token:window._token
+			}, 
+			success: function(data, textStatus){
+				// alert( "Data Saved: " + data +","+ textStatus);
+			   
+				showWaiting(false);
+				if (data.error){
+					popup(data.error);
+				}else{
+					$("#applist").html(data);
+				}
+		
+			},
+			error: function(xhr, textStatus, errorThrow){
+				// alert("error"+errorThrow+","+textStatus+","+xhr.responseText);
+				showWaiting(false);
+
+			}
+		});
+		
+		showWaiting(true);
+	}
+	load_app_list();
+</script>
+</body>
+</html>
