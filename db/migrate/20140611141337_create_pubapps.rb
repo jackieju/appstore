@@ -7,6 +7,10 @@ class CreatePubapps < ActiveRecord::Migration
         t.integer :uid
         t.string :ver
         t.text  :prop
+        t.integer :type
+        t.integer :cat1
+        t.integer :cat2
+        t.integer :cat3
         
       t.timestamps
     end

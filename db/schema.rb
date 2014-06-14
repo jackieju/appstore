@@ -31,6 +31,10 @@ ActiveRecord::Schema.define(:version => 20140611141337) do
     t.integer  "uid"
     t.string   "ver"
     t.text     "prop"
+    t.integer  "type"
+    t.integer  "cat1"
+    t.integer  "cat2"
+    t.integer  "cat3"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

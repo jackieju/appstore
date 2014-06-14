@@ -17,7 +17,7 @@
 
 <div class="login-panel" id="pre_create_app" style="display:block;width:500px;min-height:300px;left:200px;">
 	<div style="float:left;">
-		<form id="submit" method="post" action="<%=@$SETTINGS[:review_url] %>">
+		<form id="submit" method="post" action="<%=@SETTINGS[:review_url] %>">
 		<div style="text-align:left;"><div style="width:200px;">应用ID</div>&nbsp;<input id="app_id" name="app_id" ></input> </div>
 		<div style="text-align:left;"><div style="width:200px;">应用名称</div>&nbsp;<input id="app_name" name="app_name" ></input> </div>
 		<div style="text-align:left;"><div style="width:100px;">应用描述</div>&nbsp;<textarea id="app_desc" name="app_desc"></textarea> </div>
@@ -30,12 +30,17 @@
 			<div style="width:100px;float:left;position:relative;">ScreenShot</div>&nbsp;
 			<div id="app_logo" style="float:left;position:relative;"><img src="/images/Apps-48.png" /></div>
 		</div>
-		</form>
 	</div>
 	<div style="float:left;margin-left:80px;">
 		<div id="app_key_container" style="text-align:left;margin-bottom:10px;"><div style="width:200px;font-size:12pt;font-weight:300;">App Key</div>&nbsp;<span id="app_key" style="font-weight:300;">xxxx-xxxx-xxxx-xxxx</span> </div>
 		<div style="text-align:left;"><div style="width:200px;font-size:12pt;font-weight:400;">App Type</div>&nbsp;<span id="app_type" style="font-weight:300;">AddOn</span> </div>
-		<input id="app_type" name="app_typev value="addon" hidden></input>
+		<input id="app_type" name="app_type" value="addon" hidden></input>
+		
+		<div style="text-align:left;margin-top:5px;"><div style="width:200px;font-size:12pt;font-weight:400;">Category1</div>&nbsp;<span id="app_cat1" style="font-weight:300;">财务</span> </div>
+		<div style="text-align:left;margin-top:5px;"><div style="width:200px;font-size:12pt;font-weight:400;">Category2</div>&nbsp;<span id="app_cat2" style="font-weight:300;">HR</span> </div>
+		<div style="text-align:left;margin-top:5px;"><div style="width:200px;font-size:12pt;font-weight:400;">Version</div>&nbsp;<span id="app_cat2" style="font-weight:300;"><input name="ver" id="app_ver" value="1.0.0"/></span> </div>
+		</form>
+		
 	</div>
 	<div style="clear:both;">
 	</div>
@@ -57,7 +62,7 @@ $("#app_name").val("<%=@app[:name]%>");
 $("#app_desc").val("<%=@app[:desc]%>");
 
 var g_appid = "<%=@app[:appid]%>";
-var g_review_url = "<%=@$SETTINGS[:review_url] %>";
+var g_review_url = "<%=@SETTINGS[:review_url] %>";
 function submit_app(){
 	$("form#submit").submit();
 }

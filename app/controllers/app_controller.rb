@@ -1,4 +1,5 @@
 class AppController < ApplicationController
+    # used by internal
     def list
         p "====>select * from apps where uid=#{@user.id}"
         @apps = App.find_by_sql("select * from apps where uid=#{@user.id}")

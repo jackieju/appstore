@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
   def before_action
       p "==>before_action"
       @user = User.new
-      @$SETTINGS = $SETTINGS
+      @SETTINGS = $SETTINGS
       
   end
   def error(msg, data=nil)
