@@ -94,6 +94,9 @@ class AppController < ApplicationController
         success('OK', {:ret=>r})
     end
     def _create_repo(repo)
+        p "cd #{$SETTINGS[:repo_root]}\n
+                git init --bare #{repo}.git"
+                
         r = system "cd #{$SETTINGS[:repo_root]}\n
                 git init --bare #{repo}.git"
 
